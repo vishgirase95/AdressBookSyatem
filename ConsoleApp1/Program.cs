@@ -36,8 +36,19 @@ namespace ConsoleApp1
                 Console.WriteLine($"\n First Name : {item.FirstName}\n Last Name: {item.LastName}\n City : {item.City}\n Age : {item.age}\n \n");
 
             }
-           
+           AdressBook NewContact= Contact.Find(cust => cust.FirstName == "Shridi");
+            NewContact.FirstName = "Salman";
+            NewContact.LastName = "Khan";
+            NewContact.City = "Delhi";
+            NewContact.age = 50;
 
+            Console.WriteLine("After Changing Contact Shridi to salman **********\n\n");
+
+            foreach (AdressBook item in Contact)
+            {
+                Console.WriteLine($"\n First Name : {item.FirstName}\n Last Name: {item.LastName}\n City : {item.City}\n Age : {item.age}\n \n");
+
+            }
 
         }
     }
