@@ -28,6 +28,8 @@ namespace ConsoleApp1
             Contact.Add(ContactDetails1);
             Contact.Add(ContactDetails2);
             Contact.Add(ContactDetails3);
+            Contact.Add(ContactDetails4);
+
 
             foreach (AdressBook item in Contact)
             {
