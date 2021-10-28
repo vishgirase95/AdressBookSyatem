@@ -36,7 +36,16 @@ namespace ConsoleApp1
                 Console.WriteLine($"\n First Name : {item.FirstName}\n Last Name: {item.LastName}\n City : {item.City}\n Age : {item.age}\n \n");
 
             }
-           
+
+            Contact.RemoveAll(cust => cust.FirstName == "Vishal");
+
+            Console.WriteLine("After the remove ************\n\n");
+
+            foreach (AdressBook item in Contact)
+            {
+                Console.WriteLine($"\n First Name : {item.FirstName}\n Last Name: {item.LastName}\n City : {item.City}\n Age : {item.age}\n \n");
+
+            }
 
 
         }
