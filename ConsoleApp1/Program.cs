@@ -37,7 +37,10 @@ namespace ConsoleApp1
 
             }
 
-            Contact.RemoveAll(cust => cust.FirstName == "Vishal");
+         
+
+            string User_Input = Console.ReadLine();
+            Contact.RemoveAll(cust => cust.FirstName == User_Input);
 
             Console.WriteLine("After the remove ************\n\n");
 
