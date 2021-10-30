@@ -6,38 +6,67 @@ namespace ConsoleApp1
 
     class AdressBook
     {
-        public string FirstName;
-        public string LastName;
-        public string City;
-        public int age;
-       
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public int age { get; set; }
+        public string City { get; set; }
 
 
     }
+
+
+
+
     class Program
     {
-        static void Main(string[] args)
+        public static Dictionary<string, AdressBook> Contact = new Dictionary<string, AdressBook>();
+
+        public static void AddInput()
         {
             Console.WriteLine("Welcome to Address Book System");
-            AdressBook ContactDetails1 = new AdressBook() { FirstName = "Vishal", LastName = "Girase", City = "pune", age = 26 };
-            AdressBook ContactDetails2 = new AdressBook() { FirstName = "Rajesh", LastName = "Rajput", City = "Mumbai", age =18  };
-            AdressBook ContactDetails3 = new AdressBook() { FirstName = "Vidhi", LastName = "Shah", City = "surat", age = 21 };
-            AdressBook ContactDetails4 = new AdressBook() { FirstName = "Shridi", LastName = "Sing", City = "surat", age = 20 };
-
-            List<AdressBook> Contact = new List<AdressBook>();
-            Contact.Add(ContactDetails1);
-            Contact.Add(ContactDetails2);
-            Contact.Add(ContactDetails3);
-            Contact.Add(ContactDetails4);
 
 
-            foreach (AdressBook item in Contact)
+            AdressBook ContactDetails1 = new AdressBook();
+            Console.WriteLine("Please Enter The First Name : ");
+            ContactDetails1.FirstName = Console.ReadLine();
+            Console.WriteLine("Please Enter The Last Name : ");
+            ContactDetails1.LastName = Console.ReadLine();
+            Console.WriteLine("Please Enter The Age : ");
+            ContactDetails1.age = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Please Enter The City : ");
+            ContactDetails1.City = Console.ReadLine();
+
+
+            Contact.Add(ContactDetails1.FirstName, ContactDetails1);
+
+        }
+
+        public static void PrintOutPut()
+        {
+            Console.WriteLine(" \n \n \n Please Check Your Contact Detail");
+
+            foreach (var item in Contact)
             {
-                Console.WriteLine($"\n First Name : {item.FirstName}\n Last Name: {item.LastName}\n City : {item.City}\n Age : {item.age}\n \n");
-
+                Console.WriteLine($"\n First Name : {item.Value.FirstName} \n Last name : {item.Value.LastName} \n Age : {item.Value.age} \n City : {item.Value.age}");
             }
-           
+        }
 
+        static void Main(string[] args)
+        {
+
+            string YesOrNO = "Y";
+            while (YesOrNO == "Y")
+            {
+                AddInput();
+                PrintOutPut();
+
+
+                Console.WriteLine("Do You want to create New Contact, Please type Y or N ");
+                YesOrNO = Console.ReadLine();
+                if (YesOrNO == "N")
+                    break;
+
+            };
 
         }
     }
